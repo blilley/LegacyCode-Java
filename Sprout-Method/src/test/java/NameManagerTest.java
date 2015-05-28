@@ -48,4 +48,18 @@ public class NameManagerTest
         assertThat(actual.get(1), is("Indiana JonesAppended"));
     }
 
+    @Test
+    public void appendTextToNames_WhenDuplicateNames_ReturnsNameWithAppendedText()
+    {
+        NameManager nameManager = new NameManager();
+
+        List<String> names = Arrays.asList("Han Solo", "Han Solo");
+
+        List<String> actual = nameManager.appendTextToNames(names, "Appended");
+
+        assertThat(actual, is(not(empty())));
+        assertThat(actual.size(), is(1));
+        assertThat(actual.get(0), is("Han SoloAppended"));
+    }
+
 }
