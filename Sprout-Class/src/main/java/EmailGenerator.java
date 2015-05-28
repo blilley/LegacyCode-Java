@@ -1,12 +1,15 @@
 import java.util.List;
 
 public class EmailGenerator {
-    public void generate() {
+
+    public String generate() {
         UserRepository userRepo = new UserRepository();
         StringBuilder emailText = new StringBuilder();
+        EmailGreetingGenerator greetingGenerator = new EmailGreetingGenerator();
 
         List<String> userNames = userRepo.getAllUserNames();
-        
+
+        emailText.append(greetingGenerator.generate());
         emailText.append("  The users for this month are:");
         emailText.append("<br/>");
 
@@ -18,5 +21,7 @@ public class EmailGenerator {
         emailText.append("Thank you,");
         emailText.append("<br/>");
         emailText.append("Your System");
+
+        return emailText.toString();
     }
 }
