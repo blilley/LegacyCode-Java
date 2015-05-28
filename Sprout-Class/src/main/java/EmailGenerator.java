@@ -6,9 +6,7 @@ public class EmailGenerator {
         StringBuilder emailText = new StringBuilder();
 
         List<String> userNames = userRepo.getAllUserNames();
-
-        emailText.append("Attention:");
-        emailText.append("<br/>");
+        
         emailText.append("  The users for this month are:");
         emailText.append("<br/>");
 
